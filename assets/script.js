@@ -68,7 +68,8 @@ function playSound() {
         console.log("Error with playing:", error);
       });
   } else {
-  console.log("audio not found")}
+    console.log("audio not found");
+  }
 }
 // updates the timer when the timer is going
 function updateTimer() {
