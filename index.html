@@ -10,14 +10,14 @@
   <body>
     <h1>ZenFlow Pomdero Timer</h1>
     <div class="timer">
-      <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds"
-        >00</span
-      >
-      <button onclick="play()">Start</button>
-      <button onclick="pause()">Pause</button>
+      <span id="minutes">00</span>:<span id="seconds">05</span>
+      <button id="startButton" onclick="play()">Play</button>
+      <button id="pauseButton" onclick="pause()">Pause</button>
       <button onclick="restart()">Restart</button>
     </div>
-
     <script src="assets/script.js"></script>
+    <audio id="notificationSound">
+      <source src="assets/sounds/tuturu.mp3" type="audio/mpeg" />
+    </audio>
   </body>
 </html>
