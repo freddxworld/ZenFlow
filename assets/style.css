@@ -3,69 +3,57 @@ html {
   height: 100%;
   background-color: #a6bcc5;
   margin: 0;
+  padding: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+}
+.headrowCont{
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  right: 0;
 }
 
 h1 {
   font-size: 5rem;
-  /* margin-top: 0px; */
 }
 
-.container {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  justify-content: center;
-  position: relative;
+.middlecontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .restart-button {
-  position: absolute;
-  /* Position the restart button absolutely */
-  top: 0;
-  /* Place it at the top */
-  right: 0;
-  /* Place it at the right */
+  bottom: 0;
   margin: 10px;
-  /* Adjust margin as needed */
 }
 
 .timer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* font-size: 24px; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 
 .time {
-  display: flex;
   font-size: 75px;
 }
 
 .buttons {
-  margin-top: 10px;
-  display: flex;
+  /* margin-top: 10px; */
+  /* display: flex; */
 }
 
 .button-image {
   width: 60px;
   height: 60px;
   cursor: pointer;
-  /* Change cursor to pointer when hovering over the image */
-  /* Add any other styling you want for your image button */
 }
 
-/* Optional: Add styling for button text if needed */
 .buttons button {
   margin-right: 10px;
 }
-
-/* .buttons { */
-/*   margin-top: 10px; */
-/*   display: flex; */
-/* } */
-/* .buttons button { */
-/*   margin-right: 15px; /* Adjust this value as needed */
-/* } */

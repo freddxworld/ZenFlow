@@ -8,39 +8,42 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="headrowCont">
+      <button>skip</button>
       <img
         src="assets/images/icons8-restart-50 (1).png"
         class="button-image restart-button"
         alt="restart button"
         onclick="restart()"
       />
+      <button>options</button>
+          </div>
+    <div class="middlecontainer">
       <h1>ZenFlow</h1>
-      <div class="timer">
-        <div class="time">
-          <span id="minutes">00</span>:<span id="seconds">05</span>
-        </div>
-        <div class="buttons">
-          <img
-            src="assets/images/icons8-play-50.png"
-            class="button-image"
-            alt="play button"
-            id="startButton"
-            onclick="play()"
-          />
-          <!-- <button id="startButton" onclick="play()">Play</button> -->
-          <img
-            src="assets/images/icons8-pause-50.png"
-            class="button-image"
-            alt="pause button"
-            id="pauseButton"
-            onclick="pause()"
-          />
-          <!-- <button id="pauseButton" onclick="pause()">Pause</button> -->
-          <!-- <button onclick="restart()">Restart</button> -->
-        </div>
+      <!-- <div class="timer"> -->
+      <!-- might put the circle timer aroudn the time or just have some other way to -->
+      <!-- see where we are at -->
+      <div class="time">
+        <span id="minutes">00</span>:<span id="seconds">05</span>
+      </div>
+      <div class="buttons">
+        <img
+          src="assets/images/icons8-play-50.png"
+          class="button-image"
+          alt="play button"
+          id="startButton"
+          onclick="play()"
+        />
+        <img
+          src="assets/images/icons8-pause-50.png"
+          class="button-image"
+          alt="pause button"
+          id="pauseButton"
+          onclick="pause()"
+        />
       </div>
     </div>
+    <!-- </div> -->
     <script src="assets/script.js"></script>
     <audio id="notificationSound">
       <source src="assets/sounds/tuturu.mp3" type="audio/mpeg" />
