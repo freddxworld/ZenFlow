@@ -8,12 +8,38 @@
   </head>
 
   <body>
-    <h1>ZenFlow Pomdero Timer</h1>
-    <div class="timer">
-      <span id="minutes">00</span>:<span id="seconds">05</span>
-      <button id="startButton" onclick="play()">Play</button>
-      <button id="pauseButton" onclick="pause()">Pause</button>
-      <button onclick="restart()">Restart</button>
+    <div class="container">
+      <img
+        src="assets/images/icons8-restart-50 (1).png"
+        class="button-image restart-button"
+        alt="restart button"
+        onclick="restart()"
+      />
+      <h1>ZenFlow</h1>
+      <div class="timer">
+        <div class="time">
+          <span id="minutes">00</span>:<span id="seconds">05</span>
+        </div>
+        <div class="buttons">
+          <img
+            src="assets/images/icons8-play-50.png"
+            class="button-image"
+            alt="play button"
+            id="startButton"
+            onclick="play()"
+          />
+          <!-- <button id="startButton" onclick="play()">Play</button> -->
+          <img
+            src="assets/images/icons8-pause-50.png"
+            class="button-image"
+            alt="pause button"
+            id="pauseButton"
+            onclick="pause()"
+          />
+          <!-- <button id="pauseButton" onclick="pause()">Pause</button> -->
+          <!-- <button onclick="restart()">Restart</button> -->
+        </div>
+      </div>
     </div>
     <script src="assets/script.js"></script>
     <audio id="notificationSound">
