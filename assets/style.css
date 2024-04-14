@@ -8,17 +8,19 @@ html {
   flex-direction: column;
   justify-content: center;
 }
-.headrowCont{
+
+.headrowCont {
   display: flex;
   justify-content: flex-end;
-  padding: 10px;
+  /* padding: 10px; */
   position: fixed;
   top: 0;
   right: 0;
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: 4rem;
+  margin: 5px;
 }
 
 .middlecontainer {
@@ -27,9 +29,38 @@ h1 {
   align-items: center;
 }
 
-.restart-button {
-  bottom: 0;
-  margin: 10px;
+.progress {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+  margin-bottom: 20px;
+  margin-top: 8px;
+}
+
+.circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #9E9E9E;
+}
+
+.circle.activeBreak {
+  background-image: conic-gradient(#ffffff 0deg 50%, #ffffff 50% 100%);
+}
+
+.circle.activeFlow {
+  background-image: conic-gradient(#9E9E9E 0deg 50%, #ffffff 50% 100%);
+}
+
+.header-button {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 5px;
+
+  /* bottom: 0; */
+  /* margin: 10px; */
 }
 
 .timer {

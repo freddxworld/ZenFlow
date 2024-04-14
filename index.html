@@ -9,19 +9,38 @@
 
   <body>
     <div class="headrowCont">
-      <button>skip</button>
+      <img
+        src="assets/images/icons8-arrow-32.png"
+        class="header-button"
+        alt="skip arrow"
+        id="arrow"
+        onclick=""
+      />
       <img
         src="assets/images/icons8-restart-50 (1).png"
-        class="button-image restart-button"
+        class="header-button"
         alt="restart button"
+        id="restart"
         onclick="restart()"
       />
-      <button>options</button>
+      <img
+        src="assets/images/icons8-menu-vertical-24.png"
+        class="header-button"
+        alt="options button"
+        onclick=""
+      />
     </div>
     <div class="middlecontainer">
-      <h1>ZenFlow</h1>
+      <h1 id="flow">ZenFlow</h1>
+      <h1 id="break">Break</h1>
       <div class="time">
         <span id="minutes">00</span>:<span id="seconds">05</span>
+      </div>
+      <div class="progress">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
       </div>
       <div class="buttons">
         <img

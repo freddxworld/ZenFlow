@@ -1,59 +1,128 @@
 let timer;
 let minutes = 0;
 let seconds = 5;
-let counter = 1;
+let counter = 0;
 let isPaused = false;
-document.getElementById("pauseButton").style.display = "none";
 
-function play() {
-  //gonna be used for starting the timer
-  if (!isPaused) {
-    timer = setInterval(updateTimer, 1000);
-    document.getElementById("startButton").disabled = true;
-    document.getElementById("startButton").style.display = "none";
-    document.getElementById("pauseButton").style.display = "block";
-  } else if (isPaused) {
-    //will be used to resume timer
-    timer = setInterval(updateTimer, 1000);
-    isPaused = false;
-    document.getElementById("startButton").style.display = "none";
-    document.getElementById("startButton").disabled = true;
-    document.getElementById("pauseButton").style.display = "block";
+const pauseButton = document.getElementById("pauseButton");
+const breakElement = document.getElementById("break");
+const startButton = document.getElementById("startButton");
+const flowElement = document.getElementById("flow");
+
+// update the display timer
+function updateDisplay() {
+  document.getElementById("minutes").textContent = formatTime(minutes);
+  document.getElementById("seconds").textContent = formatTime(seconds);
+}
+
+function progress() {
+  const circles = document.querySelectorAll(".circle");
+  // case 1 even
+  if (counter % 2 == 0) {
+    console.log("even flow", counter);
+    // circles[counter].classList.add("activeFlow");
+    circles[counter / 2].classList.add("activeFlow");
+  }
+  // case 2 odd
+  else if (counter % 2 !== 0) {
+    console.log("odd break", counter);
+    // let temp = counter;
+    // circles[temp - 1].classList.add("activeBreak");
+    circles[Math.floor(counter / 2)].classList.remove("activeFlow");
+    circles[Math.floor(counter / 2)].classList.add("activeBreak");
   }
 }
-//will pause the timer
+function play() {
+  if (!isPaused) {
+    console.log("counter is at", counter);
+    console.log("ran once");
+    timer = setInterval(updateTimer, 1000);
+    startButton.style.display = "none";
+    pauseButton.style.display = "block";
+    progress();
+    counter++;
+  } else {
+    console.log("counter is at", counter);
+    timer = setInterval(updateTimer, 1000);
+    startButton.style.display = "none";
+    pauseButton.style.display = "block";
+  }
+}
+
 function pause() {
   clearInterval(timer);
   isPaused = true;
-  document.getElementById("startButton").disabled = false;
-  document.getElementById("startButton").style.display = "block";
-  document.getElementById("pauseButton").style.display = "none";
+  startButton.style.display = "block";
+  pauseButton.style.display = "none";
 }
-//will restart the timer and set the display timer to 00:00:00
+
 function restart() {
   clearInterval(timer);
-  counter = 1;
+  counter = 0;
   minutes = 0;
   seconds = 5;
-  document.getElementById("minutes").textContent = formatTime(minutes);
-  document.getElementById("seconds").textContent = formatTime(seconds);
-  document.getElementById("startButton").disabled = false;
-  document.getElementById("startButton").style.display = "block";
-  document.getElementById("pauseButton").style.display = "none";
+  isPaused = false;
+  updateDisplay();
+  startButton.style.display = "block";
+  pauseButton.style.display = "none";
+  breakElement.style.display = "none";
+  flowElement.style.display = "block";
 }
-// will setup break timer
-function breakTimer() {
-  minutes = 0;
-  seconds = 3;
-  document.getElementById("minutes").textContent = formatTime(minutes);
-  document.getElementById("seconds").textContent = formatTime(seconds);
-}
-// will setup flow timer
-function flowTimer() {
-  minutes = 0;
-  seconds = 5;
-  document.getElementById("minutes").textContent = formatTime(minutes);
-  document.getElementById("seconds").textContent = formatTime(seconds);
+function updateTimer() {
+  if (seconds > 0) {
+    seconds--;
+    updateDisplay();
+  } else {
+    if (minutes > 0) {
+      minutes--;
+      seconds = 59;
+      updateDisplay();
+      // break timer setup
+    } else if (counter < 7 && counter % 2 !== 0) {
+      console.log("counter is ", counter);
+      playSound();
+      breakElement.style.display = "block";
+      flowElement.style.display = "none";
+      minutes = 0;
+      seconds = 3;
+      updateDisplay();
+      progress();
+      counter++;
+      console.log("breakTimer setup");
+      pause();
+      // flow timer setup
+    } else if (counter <= 6 && counter % 2 == 0) {
+      console.log("counter is ", counter);
+      playSound();
+      breakElement.style.display = "none";
+      flowElement.style.display = "block";
+      minutes = 0;
+      seconds = 5;
+      updateDisplay();
+      progress();
+      counter++;
+      console.log("flow setup");
+      pause();
+      // long break
+    } else if (counter == 7 && counter % 2 !== 0) {
+      console.log("counter is ", counter);
+      playSound();
+      breakElement.style.display = "block";
+      flowElement.style.display = "none";
+      minutes = 0;
+      seconds = 10;
+      updateDisplay();
+      progress();
+      counter++;
+      console.log("30 min break");
+      pause();
+    } else if (counter == 8) {
+      console.log("counter is", counter);
+      playSound();
+      console.log("restarting");
+      restart();
+    }
+  }
 }
 // in charge of sound
 function playSound() {
@@ -71,57 +140,7 @@ function playSound() {
     console.log("audio not found");
   }
 }
-// updates the timer when the timer is going
-function updateTimer() {
-  //checks if there are anymore seconds in the timer
-  if (seconds > 0) {
-    // if there are then we decrement the seconds and update the the clock
-    seconds--;
-    document.getElementById("seconds").textContent = formatTime(seconds);
-  } else {
-    // else if there are no more secs then we jump here to check if there are still minutes
-    // or if we have reached one of the three cases
-    if (minutes > 0) {
-      minutes--;
-      seconds = 59;
-      document.getElementById("minutes").textContent = formatTime(minutes);
-      document.getElementById("seconds").textContent = formatTime(seconds);
-      // case 1 break timer
-    } else if (counter < 7 && counter % 2 !== 0) {
-      playSound();
-      breakTimer();
-      console.log("counter is", counter);
-      counter++;
-      console.log("break");
-      pause();
-      // case 2 flow timer
-    } else if (counter < 8 && counter % 2 == 0) {
-      playSound();
-      flowTimer();
-      console.log("counter is", counter);
-      counter++;
-      console.log("flow");
-      pause();
-      // case 3 long break timer
-    } else if (counter == 7 && counter % 2 !== 0) {
-      playSound();
-      minutes = 0;
-      seconds = 10;
-      document.getElementById("minutes").textContent = formatTime(minutes);
-      document.getElementById("seconds").textContent = formatTime(seconds);
-      console.log("counter is", counter);
-      counter++;
-      console.log("30 min break");
-      pause();
-      // case 4 restarting
-    } else if (counter == 8) {
-      playSound();
-      console.log("counter is", counter);
-      console.log("restarting");
-      restart();
-    }
-  }
-}
 function formatTime(time) {
   return time < 10 ? `0${time}` : time;
 }
+restart();
