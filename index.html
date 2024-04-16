@@ -1,67 +1,43 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ZenFlow</title>
-    <link rel="stylesheet" href="assets/style.css" />
-  </head>
 
-  <body>
-    <div class="headrowCont">
-      <img
-        src="assets/images/icons8-arrow-32.png"
-        class="header-button"
-        alt="skip arrow"
-        id="arrow"
-        onclick=""
-      />
-      <img
-        src="assets/images/icons8-restart-50 (1).png"
-        class="header-button"
-        alt="restart button"
-        id="restart"
-        onclick="restart()"
-      />
-      <img
-        src="assets/images/icons8-menu-vertical-24.png"
-        class="header-button"
-        alt="options button"
-        onclick=""
-      />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZenFlow</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body>
+  <div class="headrowCont">
+    <img src="assets/images/icons8-arrow-32.png" class="header-button" alt="skip
+        arrow" id="arrow" onclick="skipBreak()" />
+    <img src="assets/images/icons8-restart-50 (1).png" class="header-button" alt="restart button" id="restart"
+      onclick="restart()" />
+  </div>
+  <div class="middlecontainer">
+    <h1 id="flow">ZenFlow</h1>
+    <h1 id="break">Break</h1>
+    <div class="time">
+      <span id="minutes">00</span>:<span id="seconds">05</span>
     </div>
-    <div class="middlecontainer">
-      <h1 id="flow">ZenFlow</h1>
-      <h1 id="break">Break</h1>
-      <div class="time">
-        <span id="minutes">00</span>:<span id="seconds">05</span>
-      </div>
-      <div class="progress">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-      </div>
-      <div class="buttons">
-        <img
-          src="assets/images/icons8-play-50.png"
-          class="button-image"
-          alt="play button"
-          id="startButton"
-          onclick="play()"
-        />
-        <img
-          src="assets/images/icons8-pause-50.png"
-          class="button-image"
-          alt="pause button"
-          id="pauseButton"
-          onclick="pause()"
-        />
-      </div>
+    <div class="progress">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
     </div>
-    <script src="assets/script.js"></script>
-    <audio id="notificationSound">
-      <source src="assets/sounds/tuturu.mp3" type="audio/mpeg" />
-    </audio>
-  </body>
+    <div class="buttons">
+      <img src="assets/images/icons8-play-50.png" class="button-image" alt="play button" id="startButton"
+        onclick="play()" />
+      <img src="assets/images/icons8-pause-50.png" class="button-image" alt="pause button" id="pauseButton"
+        onclick="pause()" />
+    </div>
+  </div>
+  <script src="assets/script.js"></script>
+  <audio id="notificationSound">
+    <source src="assets/sounds/tuturu.mp3" type="audio/mpeg" />
+  </audio>
+</body>
+
 </html>

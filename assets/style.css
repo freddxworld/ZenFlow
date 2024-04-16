@@ -12,7 +12,6 @@ html {
 .headrowCont {
   display: flex;
   justify-content: flex-end;
-  /* padding: 10px; */
   position: fixed;
   top: 0;
   right: 0;
@@ -58,25 +57,10 @@ h1 {
   cursor: pointer;
   margin-top: 10px;
   margin-right: 5px;
-
-  /* bottom: 0; */
-  /* margin: 10px; */
-}
-
-.timer {
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: center; */
-  /* align-items: center; */
 }
 
 .time {
   font-size: 75px;
-}
-
-.buttons {
-  /* margin-top: 10px; */
-  /* display: flex; */
 }
 
 .button-image {

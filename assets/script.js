@@ -4,10 +4,13 @@ let seconds = 5;
 let counter = 0;
 let isPaused = false;
 
+// variables that are reused
 const pauseButton = document.getElementById("pauseButton");
 const breakElement = document.getElementById("break");
 const startButton = document.getElementById("startButton");
 const flowElement = document.getElementById("flow");
+const circles = document.querySelectorAll(".circle");
+const arrowElement = document.getElementById("arrow");
 
 // update the display timer
 function updateDisplay() {
@@ -15,40 +18,34 @@ function updateDisplay() {
   document.getElementById("seconds").textContent = formatTime(seconds);
 }
 
+// timer indicator
 function progress() {
-  const circles = document.querySelectorAll(".circle");
   // case 1 even
   if (counter % 2 == 0) {
-    console.log("even flow", counter);
-    // circles[counter].classList.add("activeFlow");
     circles[counter / 2].classList.add("activeFlow");
   }
   // case 2 odd
   else if (counter % 2 !== 0) {
-    console.log("odd break", counter);
-    // let temp = counter;
-    // circles[temp - 1].classList.add("activeBreak");
     circles[Math.floor(counter / 2)].classList.remove("activeFlow");
     circles[Math.floor(counter / 2)].classList.add("activeBreak");
   }
 }
+// play button
 function play() {
   if (!isPaused) {
-    console.log("counter is at", counter);
-    console.log("ran once");
     timer = setInterval(updateTimer, 1000);
     startButton.style.display = "none";
     pauseButton.style.display = "block";
     progress();
     counter++;
   } else {
-    console.log("counter is at", counter);
     timer = setInterval(updateTimer, 1000);
     startButton.style.display = "none";
     pauseButton.style.display = "block";
   }
 }
 
+// pause button
 function pause() {
   clearInterval(timer);
   isPaused = true;
@@ -56,7 +53,26 @@ function pause() {
   pauseButton.style.display = "none";
 }
 
+// skip break button
+function skipBreak() {
+  breakElement.style.display = "none";
+  flowElement.style.display = "block";
+  arrowElement.style.display = "none";
+  minutes = 0;
+  seconds = 5;
+  updateDisplay();
+  progress();
+  counter++;
+}
+// restart button
 function restart() {
+  for (let x = 0; x < circles.length; x++) {
+    if (circles[x].classList.contains("activeFlow")) {
+      circles[x].classList.remove("activeFlow");
+    } else {
+      circles[x].classList.remove("activeBreak");
+    }
+  }
   clearInterval(timer);
   counter = 0;
   minutes = 0;
@@ -67,6 +83,7 @@ function restart() {
   pauseButton.style.display = "none";
   breakElement.style.display = "none";
   flowElement.style.display = "block";
+  arrowElement.style.display = "none";
 }
 function updateTimer() {
   if (seconds > 0) {
@@ -79,20 +96,18 @@ function updateTimer() {
       updateDisplay();
       // break timer setup
     } else if (counter < 7 && counter % 2 !== 0) {
-      console.log("counter is ", counter);
       playSound();
       breakElement.style.display = "block";
       flowElement.style.display = "none";
+      arrowElement.style.display = "block";
       minutes = 0;
       seconds = 3;
       updateDisplay();
       progress();
       counter++;
-      console.log("breakTimer setup");
       pause();
       // flow timer setup
     } else if (counter <= 6 && counter % 2 == 0) {
-      console.log("counter is ", counter);
       playSound();
       breakElement.style.display = "none";
       flowElement.style.display = "block";
@@ -101,11 +116,9 @@ function updateTimer() {
       updateDisplay();
       progress();
       counter++;
-      console.log("flow setup");
       pause();
       // long break
     } else if (counter == 7 && counter % 2 !== 0) {
-      console.log("counter is ", counter);
       playSound();
       breakElement.style.display = "block";
       flowElement.style.display = "none";
@@ -114,12 +127,9 @@ function updateTimer() {
       updateDisplay();
       progress();
       counter++;
-      console.log("30 min break");
       pause();
     } else if (counter == 8) {
-      console.log("counter is", counter);
       playSound();
-      console.log("restarting");
       restart();
     }
   }
