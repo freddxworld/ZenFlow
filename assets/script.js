@@ -1,6 +1,6 @@
 let timer;
-let minutes = 0;
-let seconds = 5;
+let minutes = 30;
+let seconds = 0;
 let counter = 0;
 let isPaused = false;
 
@@ -58,8 +58,8 @@ function skipBreak() {
   breakElement.style.display = "none";
   flowElement.style.display = "block";
   arrowElement.style.display = "none";
-  minutes = 0;
-  seconds = 5;
+  minutes = 30;
+  seconds = 0;
   updateDisplay();
   progress();
   counter++;
@@ -75,8 +75,8 @@ function restart() {
   }
   clearInterval(timer);
   counter = 0;
-  minutes = 0;
-  seconds = 5;
+  minutes = 30;
+  seconds = 0;
   isPaused = false;
   updateDisplay();
   startButton.style.display = "block";
@@ -100,8 +100,8 @@ function updateTimer() {
       breakElement.style.display = "block";
       flowElement.style.display = "none";
       arrowElement.style.display = "block";
-      minutes = 0;
-      seconds = 3;
+      minutes = 5;
+      seconds = 0;
       updateDisplay();
       progress();
       counter++;
@@ -111,8 +111,8 @@ function updateTimer() {
       playSound();
       breakElement.style.display = "none";
       flowElement.style.display = "block";
-      minutes = 0;
-      seconds = 5;
+      minutes = 30;
+      seconds = 0;
       updateDisplay();
       progress();
       counter++;
@@ -122,8 +122,8 @@ function updateTimer() {
       playSound();
       breakElement.style.display = "block";
       flowElement.style.display = "none";
-      minutes = 0;
-      seconds = 10;
+      minutes = 30;
+      seconds = 0;
       updateDisplay();
       progress();
       counter++;
