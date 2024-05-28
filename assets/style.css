@@ -1,7 +1,7 @@
 body,
 html {
   height: 100%;
-  background-color: #a6bcc5;
+  background-color: #DFF0D8;
   margin: 0;
   padding: 0;
   display: flex;
@@ -9,12 +9,22 @@ html {
   justify-content: center;
 }
 
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .headrowCont {
   display: flex;
   justify-content: flex-end;
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 12px;
+  right: 22px;
 }
 
 h1 {
@@ -40,7 +50,7 @@ h1 {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background: #9E9E9E;
+  background: #9e9e9e;
 }
 
 .circle.activeBreak {
@@ -48,7 +58,7 @@ h1 {
 }
 
 .circle.activeFlow {
-  background-image: conic-gradient(#9E9E9E 0deg 50%, #ffffff 50% 100%);
+  background-image: conic-gradient(#9e9e9e 0deg 50%, #ffffff 50% 100%);
 }
 
 .header-button {
