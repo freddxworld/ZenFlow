@@ -1,7 +1,7 @@
 body,
 html {
   height: 100%;
-  background-color: #DFF0D8;
+  background-color: #dff0d8;
   margin: 0;
   padding: 0;
   display: flex;
@@ -36,6 +36,11 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #a8c097;
+  padding: 25px 100px;
+  border-radius: 20px;
+  margin: 20px auto;
+  max-width: 500px;
 }
 
 .progress {
