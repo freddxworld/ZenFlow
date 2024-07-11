@@ -10,12 +10,10 @@ on GitHub Pages using Nvim and Git.
 
 ## 💡Key Features
 
-- **interactive Animation** : A bird flying up and down on its way delivering a note
-  that users can click on to proceed to read the letter
-- **User Choices** : Two response options (yes/no) leading to different outcomes.
-- **Dynamic Content** Integration with YouTube to play specific videos based on user responses.
-- **Responsive Design** : Ensuring the website is visually appealing and functional across different devices.
-- **Hosting** : Deployed using GitHub Pages for easy access and sharing.
+- **Pause, Resume, and Reset Timer**: Timer functionality is controlled by tab activity using browser events.
+- **Visual Notifications**: Enhances user experience with alerts.
+- **Progress Indicators**: Uses circles to track time intervals and completion of Pomodoro cycles.
+- **Future Updates**: Plans to optimize tab-switching detection for improved timer
 
 ## ⚙️ Technologies Used
 
@@ -27,7 +25,9 @@ on GitHub Pages using Nvim and Git.
 - nvim editor
 
 ## 📹Demo
+
 [![Watch the demo video](https://img.youtube.com/vi/QrKvURphyAU/0.jpg)](https://www.youtube.com/watch?v=QrKvURphyAU)
+Watch demo of the project
 
 ## 📷 Screenshots
 
