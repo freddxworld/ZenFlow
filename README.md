@@ -27,8 +27,7 @@ on GitHub Pages using Nvim and Git.
 - nvim editor
 
 ## 📹Demo
-
-[![Watch the demo video](https://www.youtube.com/watch?v=QrKvURphyAU)](https://www.youtube.com/watch?v=QrKvURphyAU)
+[![Watch the demo video](https://img.youtube.com/vi/QrKvURphyAU/0.jpg)](https://www.youtube.com/watch?v=QrKvURphyAU)
 
 ## 📷 Screenshots
 
