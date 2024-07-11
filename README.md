@@ -28,9 +28,9 @@ on GitHub Pages using Nvim and Git.
 
 ## 📹Demo
 
-[![Watch the demo video](https://img.youtube.com/vi/QrkvURphyAU/0.jpg)](https://www.youtube.com/watch?v=QrkvURphyAU)
+[![Watch the demo video](https://img.youtube.com/vi/-QrkvURphyAU/0.jpg)](https://www.youtube.com/watch?v=-QrkvURphyAU)
 
 ## 📷 Screenshots
 
-![Homepage of the pomodoro timer](assets/screenshots/homepage)
+![Homepage of the pomodoro timer](assets/screenshots/homepage.png)
 Homepage of the pomodoro timer
