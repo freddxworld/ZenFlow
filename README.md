@@ -28,7 +28,7 @@ on GitHub Pages using Nvim and Git.
 
 ## 📹Demo
 
-[![Watch the demo video](https://img.youtube.com/vi/-QrkvURphyAU/0.jpg)](https://www.youtube.com/watch?v=-QrkvURphyAU)
+[![Watch the demo video](https://img.youtube.com/vi/-QrkvURphyAU/0.jpg)](https://www.youtube.com/watch?v=QrKvURphyAU)
 
 ## 📷 Screenshots
 
